@@ -10,6 +10,8 @@ jobs:
     steps:
       - name: Clone GIT repo
         uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
       - name: Run tests
         run: |
           clang -x ${{ matrix.lang }} -o nob nob.c
@@ -23,6 +25,8 @@ jobs:
     steps:
       - name: Clone GIT repo
         uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
       - name: Build tests
         run: |
           ${{ matrix.cc }} -x ${{ matrix.lang }} -o nob nob.c
@@ -35,6 +39,8 @@ jobs:
     steps:
       - name: Clone GIT repo
         uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
       - name: vswhere
         run: vswhere
       - name: Build tests
