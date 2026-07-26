@@ -101,6 +101,8 @@ int main(int argc, char **argv)
     // runs it again.
     NOB_GO_REBUILD_URSELF(argc, argv);
 
+    configure();
+    
     if(buildExe() != 0) { return 1; };
     
 #ifndef PLATFORM_GITHUB_WORKFLOW
