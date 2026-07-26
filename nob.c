@@ -71,6 +71,11 @@ int buildExe() {
 #endif
 
 
+#ifdef TARGET_PLATFORM_IOS
+    nob_cmd_append(&cmd, "-target", "arm64-apple-ios26");
+#endif
+
+
     nob_cc_inputs(&cmd, "-I", INCLUDES_FOLDER);
     //nob_cmd_append(&cmd, "-I",  "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks");
 
