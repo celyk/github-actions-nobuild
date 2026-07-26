@@ -45,7 +45,7 @@ void configure() {
         exit(1);
     }
 
-    nob_cmd_append(&cmd, "sudo", "apt", "install", "libxi-dev");
+    nob_cmd_append(&cmd, "sudo", "apt", "install", "libxcursor-dev");
     if (!nob_cmd_run(&cmd)) {
         exit(1);
     }
