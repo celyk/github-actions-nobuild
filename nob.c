@@ -29,7 +29,7 @@ void configure() {
         "libxcursor-dev", 
         "mesa-common-dev", 
         "libgl1-mesa-dri", 
-        "libgbm1",
+        "libgbm1"
     );
 
     if (!nob_cmd_run(&cmd)) {
