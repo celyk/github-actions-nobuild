@@ -61,7 +61,7 @@ int main(int argc, char **argv)
     NOB_GO_REBUILD_URSELF(argc, argv);
 
     if(buildExe() != 0) { return 1; };
-    //if(runExe() != 0) { return 1; };
+    if(runExe() != 0) { return 1; };
 
     return 0;
 }
