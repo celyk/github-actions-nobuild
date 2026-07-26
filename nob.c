@@ -18,6 +18,9 @@
 #endif
 
 int buildExe() {
+    if (!nob_mkdir_if_not_exists(BUILD_FOLDER)) return 1;
+    if (!nob_mkdir_if_not_exists(BUILD_SUBFOLDER)) return 1;
+
     Nob_Cmd cmd = {0};
 
     nob_cc(&cmd);
