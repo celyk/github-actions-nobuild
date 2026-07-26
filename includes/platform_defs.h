@@ -30,6 +30,10 @@
     #define PLATFORM_MOBILE
 #endif
 
+#if defined(PLATFORM_MACOS) || defined(PLATFORM_IOS)
+    #define PLATFORM_DARWIN
+#endif
+
 #if defined(PLATFORM_WEB)
     #if defined(HEADLESS_ONLY)
     #define PLATFORM_WEBSERVER

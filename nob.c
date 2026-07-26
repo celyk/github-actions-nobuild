@@ -6,6 +6,7 @@
 // Some folder paths that we use throughout the build process.
 #define SRC_FOLDER   "src/"
 #define BUILD_FOLDER "build/"
+#define INCLUDES_FOLDER   "includes/"
 
 #if defined(PLATFORM_MACOS)
 #define BUILD_SUBFOLDER "build/macos/"
@@ -25,6 +26,28 @@ int buildExe() {
 
     nob_cc(&cmd);
     nob_cc_flags(&cmd);
+    nob_cc_inputs(&cmd, "-I", INCLUDES_FOLDER);
+
+#ifdef PLATFORM_DARWIN
+    nob_cc_inputs(&cmd, "-x", "objective-c");
+
+    nob_cmd_append(&cmd, "-framework",  "QuartzCore");
+
+#ifdef PLATFORM_MACOS
+    nob_cmd_append(&cmd, "-framework",  "AppKit");
+#else
+    nob_cmd_append(&cmd, "-framework",  "UIKit");
+#endif
+
+    // Set graphics backend
+    nob_cmd_append(&cmd, "-DSOKOL_METAL");
+    nob_cmd_append(&cmd, "-framework",  "Metal");
+#else
+    // Set graphics backend
+    nob_cmd_append(&cmd, "-DSOKOL_GLCORE");
+#endif /* PLATFORM_DARWIN */
+
+
     nob_cc_output(&cmd, BUILD_SUBFOLDER "main");
     nob_cc_inputs(&cmd, SRC_FOLDER "main.c");
 
