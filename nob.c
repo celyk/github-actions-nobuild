@@ -41,7 +41,7 @@ void configure() {
 
     //nob_cmd_append(&cmd, "sudo", "xcode-select", "--install");
     //nob_cmd_append(&cmd, "xcodebuild", "-showsdks");
-    //nob_cmd_append(&cmd, "ls", "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/‌​SDKs/");
+    //nob_cmd_append(&cmd, "ls", "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/");
     nob_cmd_append(&cmd, "ls", "/Applications/Xcode.app/Contents/Developer/Platforms/");
 
     if (!nob_cmd_run(&cmd)) {
