@@ -88,7 +88,10 @@ int main(int argc, char **argv)
     NOB_GO_REBUILD_URSELF(argc, argv);
 
     if(buildExe() != 0) { return 1; };
+    
+#ifndef PLATFORM_GITHUB_WORKFLOW
     if(runExe() != 0) { return 1; };
+#endif
 
     return 0;
 }
