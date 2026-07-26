@@ -104,6 +104,7 @@ int buildExe() {
 
     nob_cmd_append(&cmd, "-framework", "UIKit");
     nob_cmd_append(&cmd, "-framework", "Foundation");
+    nob_cmd_append(&cmd, "-framework", "CoreGraphics");
 #endif
 
     // Set graphics backend
