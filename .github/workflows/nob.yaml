@@ -34,7 +34,7 @@ jobs:
           submodules: 'recursive'
       - name: Run tests
         run: |
-          clang -x ${{ matrix.lang }} -o nob nob.c -DPLATFORM_GITHUB_WORKFLOW -DPLATFORM_IOS
+          clang -x ${{ matrix.lang }} -o nob nob.c -DPLATFORM_GITHUB_WORKFLOW -DTARGET_PLATFORM_IOS
           ./nob
 
       - uses: actions/upload-artifact@v7
