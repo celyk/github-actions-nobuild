@@ -14,8 +14,8 @@ jobs:
           submodules: 'recursive'
       - name: Run tests
         run: |
-          clang -x ${{ matrix.lang }} -o nob nob.c
-          ./nob
+          clang -x ${{ matrix.lang }} -o nob nob.c -DPLATFORM_GITHUB_WORKFLOW
+          ./nob 
           build/main
 
       - uses: actions/upload-artifact@v7
@@ -36,7 +36,7 @@ jobs:
           submodules: 'recursive'
       - name: Run tests
         run: |
-          ${{ matrix.cc }} -x ${{ matrix.lang }} -o nob nob.c
+          ${{ matrix.cc }} -x ${{ matrix.lang }} -o nob nob.c -DPLATFORM_GITHUB_WORKFLOW
           ./nob
           build/main
 
@@ -65,7 +65,7 @@ jobs:
         # https://learn.microsoft.com/en-us/cpp/build/building-on-the-command-line?view=msvc-170#create-your-own-command-prompt-shortcut
         run: |
           call "C:\\Program Files\\Microsoft Visual Studio\\18\\Enterprise\\VC\\Auxiliary\\Build\\vcvars64.bat"
-          cl.exe ${{ matrix.mode }} /Fe:nob nob.c
+          cl.exe ${{ matrix.mode }} /Fe:nob nob.c -DPLATFORM_GITHUB_WORKFLOW
           nob.exe
           build\\main.exe
 

@@ -49,6 +49,10 @@ int main(int argc, char **argv)
     nob_cc_output(&cmd, BUILD_FOLDER "main");
     nob_cc_inputs(&cmd, SRC_FOLDER "main.c");
 
+#if defined(PLATFORM_GITHUB_WORKFLOW)
+    nob_cmd_append(&cmd, "-DPLATFORM_GITHUB_WORKFLOW");
+#endif
+
     if (!nob_cmd_run(&cmd)) return 1;
 
     return 0;
