@@ -46,6 +46,7 @@ int buildExe() {
     // Set graphics backend
     nob_cmd_append(&cmd, "-DSOKOL_GLCORE");
     nob_cmd_append(&cmd, "-lGL");
+    nob_cmd_append(&cmd, "-lopengl32");
 #endif /* PLATFORM_DARWIN */
 
 
