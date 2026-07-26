@@ -5,7 +5,7 @@
 
 // Some folder paths that we use throughout the build process.
 #define SRC_FOLDER   "src/"
-#define BUILD_FOLDER "build/macos/"
+#define BUILD_FOLDER "build/"
 
 #if defined(PLATFORM_MACOS)
 #define BUILD_SUBFOLDER "build/macos/"
