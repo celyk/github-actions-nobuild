@@ -72,7 +72,8 @@ int buildExe() {
 
 
 #ifdef TARGET_PLATFORM_IOS
-    nob_cmd_append(&cmd, "-target", "arm64-apple-ios26");
+    //nob_cmd_append(&cmd, "-target", "arm64-apple-ios26");
+    nob_cmd_append(&cmd, "-target", "arm64-apple-ios");
 #endif
 
 
