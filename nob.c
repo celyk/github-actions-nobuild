@@ -85,10 +85,11 @@ int buildExe() {
     // Set graphics backend
     nob_cmd_append(&cmd, "-DSOKOL_METAL");
     nob_cmd_append(&cmd, "-framework",  "Metal");
+#else
+    nob_cmd_append(&cmd, "-DSOKOL_GLCORE");
 #endif /* PLATFORM_DARWIN */
 
-    nob_cmd_append(&cmd, "-DSOKOL_GLCORE");
-    
+
 #ifdef PLATFORM_LINUX
     // Set graphics backend
     nob_cmd_append(&cmd, "-lX11");
