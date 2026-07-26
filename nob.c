@@ -72,6 +72,8 @@ int buildExe() {
 
 
     nob_cc_inputs(&cmd, "-I", INCLUDES_FOLDER);
+    //nob_cmd_append(&cmd, "-I",  "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks");
+
 
     nob_cc_inputs(&cmd, SRC_FOLDER "main.c");
     nob_cc_output(&cmd, BUILD_SUBFOLDER "main");
@@ -84,10 +86,11 @@ int buildExe() {
     nob_cmd_append(&cmd, "-framework",  "AppKit");
 #else
 
-    nob_cmd_append(&cmd, "-F",  "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks");
+#define IOS_FRAMEWORKS_DIR "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/"
+    nob_cmd_append(&cmd, "-F", IOS_FRAMEWORKS_DIR);
 
-    nob_cmd_append(&cmd, "-framework",  "UIKit");
-    nob_cmd_append(&cmd, "-framework",  "Foundation");
+    nob_cmd_append(&cmd, "-framework", IOS_FRAMEWORKS_DIR "UIKit");
+    nob_cmd_append(&cmd, "-framework", IOS_FRAMEWORKS_DIR "Foundation");
 #endif
 
     // Set graphics backend
