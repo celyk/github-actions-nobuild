@@ -74,10 +74,10 @@ int buildExe() {
     nob_cc_output(&cmd, BUILD_SUBFOLDER "main");
 
 
-#ifndef TARGET_PLATFORM_IOS
+#ifdef PLATFORM_DARWIN
     nob_cmd_append(&cmd, "-framework",  "QuartzCore");
 
-#ifdef PLATFORM_MACOS
+#ifndef TARGET_PLATFORM_IOS
     nob_cmd_append(&cmd, "-framework",  "AppKit");
 #else
     nob_cmd_append(&cmd, "-framework",  "UIKit");
