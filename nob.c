@@ -33,7 +33,7 @@ void configure() {
         "libxi-dev", 
         "libxcursor-dev", 
         "mesa-common-dev", 
-        //"libgl1-mesa-dri", 
+        "libgl1-mesa-dri", 
         //"libgbm1",
     );
 
