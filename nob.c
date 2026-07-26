@@ -23,16 +23,16 @@ void configure() {
 
 #ifdef PLATFORM_LINUX
     nob_cmd_append(&cmd, "sudo", "apt", "install", "mesa-common-dev");
+    nob_cmd_append(&cmd, "&&", "sudo", "apt", "install", "libxi-dev");
 
     if (!nob_cmd_run(&cmd)) {
         exit(1);
     }
 
-    nob_cmd_append(&cmd, "sudo", "apt", "install", "libx11-dev");
-
-    if (!nob_cmd_run(&cmd)) {
-        exit(1);
-    }
+    // nob_cmd_append(&cmd, "sudo", "apt", "install", "libx11-dev");
+    // if (!nob_cmd_run(&cmd)) {
+    //     exit(1);
+    // }
 #endif
 
     if (cmd.count) {
