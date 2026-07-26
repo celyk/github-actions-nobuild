@@ -39,11 +39,12 @@ void configure() {
 
 #ifdef TARGET_PLATFORM_IOS
 
-    // nob_cmd_append(&cmd, "sudo", "xcode-select", "--install");
+    nob_cmd_append(&cmd, "sudo", "xcode-select", "--install");
+    nob_cmd_append(&cmd, "xcodebuild", "-showsdks");
 
-    // if (!nob_cmd_run(&cmd)) {
-    //     exit(1);
-    // }
+    if (!nob_cmd_run(&cmd)) {
+        exit(1);
+    }
 
 #endif /* PLATFORM_LINUX */
 
