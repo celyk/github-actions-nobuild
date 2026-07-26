@@ -97,6 +97,7 @@ int buildExe() {
 #ifdef PLATFORM_LINUX
     // Set graphics backend
     nob_cmd_append(&cmd, "-lX11");
+    nob_cmd_append(&cmd, "-lXi"); // XInput
     //nob_cmd_append(&cmd, "-lXcursors");
     nob_cmd_append(&cmd, "-lGL");
     nob_cmd_append(&cmd, "-lm");
