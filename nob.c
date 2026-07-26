@@ -63,6 +63,11 @@ int buildExe() {
 
     Nob_Cmd cmd = {0};
 
+#ifdef TARGET_PLATFORM_IOS
+    nob_cmd_append(&cmd, "xcrun", "-sdk", "iphoneos");
+
+#endif
+
     nob_cc(&cmd);
     nob_cc_flags(&cmd);
 
@@ -73,7 +78,7 @@ int buildExe() {
 
 #ifdef TARGET_PLATFORM_IOS
     //nob_cmd_append(&cmd, "-target", "arm64-apple-ios26");
-    nob_cmd_append(&cmd, "-target", "arm64-apple-ios");
+    //nob_cmd_append(&cmd, "-target", "arm64-apple-ios");
 #endif
 
 
