@@ -93,7 +93,9 @@ int buildExe() {
 #ifdef PLATFORM_LINUX
     // Set graphics backend
     nob_cmd_append(&cmd, "-lX11");
+    nob_cmd_append(&cmd, "-lXcursors");
     nob_cmd_append(&cmd, "-lGL");
+    nob_cmd_append(&cmd, "-lm");
     // nob_cmd_append(&cmd, "-lopengl32");
 #endif
 
