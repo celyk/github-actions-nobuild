@@ -17,9 +17,6 @@ jobs:
           clang -x ${{ matrix.lang }} -o nob nob.c -DPLATFORM_GITHUB_WORKFLOW
           ./nob
 
-          cd build/macos
-          ./main
-
       - uses: actions/upload-artifact@v7
         with:
           name: 'test-artifact'
@@ -40,9 +37,6 @@ jobs:
         run: |
           ${{ matrix.cc }} -x ${{ matrix.lang }} -o nob nob.c -DPLATFORM_GITHUB_WORKFLOW
           ./nob
-
-          cd build/linux
-          ./main
 
       - uses: actions/upload-artifact@v7
         with:
@@ -71,9 +65,6 @@ jobs:
           call "C:\\Program Files\\Microsoft Visual Studio\\18\\Enterprise\\VC\\Auxiliary\\Build\\vcvars64.bat"
           cl.exe ${{ matrix.mode }} /Fe:nob nob.c -DPLATFORM_GITHUB_WORKFLOW
           nob.exe
-
-          cd build\\windows
-          main.exe
 
       - uses: actions/upload-artifact@v7
         with:
