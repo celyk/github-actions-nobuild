@@ -22,11 +22,11 @@ void configure() {
     Nob_Cmd cmd = {0};
 
 #ifdef PLATFORM_LINUX
-    nob_cmd_append(&cmd, "sudo", "apt", "install", "xorg");
+    // nob_cmd_append(&cmd, "sudo", "apt", "install", "xorg");
 
-    if (!nob_cmd_run(&cmd)) {
-        exit(1);
-    }
+    // if (!nob_cmd_run(&cmd)) {
+    //     exit(1);
+    // }
 
     nob_cmd_append(&cmd, "sudo", "apt", "install", "libx11-dev");
 
@@ -41,13 +41,11 @@ void configure() {
     }
 
     nob_cmd_append(&cmd, "sudo", "apt", "install", "libxi-dev");
-    // nob_cmd_append(&cmd, "sudo", "apt", "install", "libx11-dev");
     if (!nob_cmd_run(&cmd)) {
         exit(1);
     }
 
     nob_cmd_append(&cmd, "sudo", "apt", "install", "libxi-dev");
-    // nob_cmd_append(&cmd, "sudo", "apt", "install", "libx11-dev");
     if (!nob_cmd_run(&cmd)) {
         exit(1);
     }
