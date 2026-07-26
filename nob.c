@@ -22,11 +22,6 @@ void configure() {
     Nob_Cmd cmd = {0};
 
 #ifdef PLATFORM_LINUX
-    // nob_cmd_append(&cmd, "sudo", "apt", "install", "xorg");
-
-    // if (!nob_cmd_run(&cmd)) {
-    //     exit(1);
-    // }
 
     nob_cmd_append(&cmd, "sudo", "apt", "install", 
         "libx11-dev", 
@@ -34,29 +29,13 @@ void configure() {
         "libxcursor-dev", 
         "mesa-common-dev", 
         "libgl1-mesa-dri", 
-        //"libgbm1",
+        "libgbm1",
     );
 
     if (!nob_cmd_run(&cmd)) {
         exit(1);
     }
-
-    // nob_cmd_append(&cmd, "sudo", "apt", "install", "mesa-common-dev");
-
-    // if (!nob_cmd_run(&cmd)) {
-    //     exit(1);
-    // }
-
-    // nob_cmd_append(&cmd, "sudo", "apt", "install", "libxi-dev");
-    // if (!nob_cmd_run(&cmd)) {
-    //     exit(1);
-    // }
-
-    // nob_cmd_append(&cmd, "sudo", "apt", "install", "libxcursor-dev");
-    // if (!nob_cmd_run(&cmd)) {
-    //     exit(1);
-    // }
-#endif
+#endif /* PLATFORM_LINUX */
 
     if (cmd.count) {
         if (!nob_cmd_run(&cmd)) {
