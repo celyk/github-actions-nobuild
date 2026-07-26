@@ -87,6 +87,7 @@ int buildExe() {
     nob_cmd_append(&cmd, "-F",  "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks");
 
     nob_cmd_append(&cmd, "-framework",  "UIKit");
+    nob_cmd_append(&cmd, "-framework",  "Foundation");
 #endif
 
     // Set graphics backend
