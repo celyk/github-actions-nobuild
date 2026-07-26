@@ -39,7 +39,7 @@ int main(int argc, char **argv)
 
     nob_cc(&cmd);
     nob_cc_flags(&cmd);
-    nob_cc_output(&cmd, BUILD_SUB_FOLDER "main");
+    nob_cc_output(&cmd, BUILD_SUBFOLDER "main");
     nob_cc_inputs(&cmd, SRC_FOLDER "main.c");
 
 #if defined(PLATFORM_GITHUB_WORKFLOW)
