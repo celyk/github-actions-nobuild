@@ -25,8 +25,10 @@ void configure() {
     nob_cmd_append(&cmd, "sudo apt install mesa-common-dev");
 #endif
 
-    if (cmd.count && !nob_cmd_run(&cmd)) {
-        exit(1);
+    if (cmd.count) {
+        if (!nob_cmd_run(&cmd)) {
+            exit(1);
+        }
     }
 }
 
