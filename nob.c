@@ -83,6 +83,9 @@ int buildExe() {
 #ifndef TARGET_PLATFORM_IOS
     nob_cmd_append(&cmd, "-framework",  "AppKit");
 #else
+
+    nob_cmd_append(&cmd, "-F",  "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks");
+
     nob_cmd_append(&cmd, "-framework",  "UIKit");
 #endif
 
