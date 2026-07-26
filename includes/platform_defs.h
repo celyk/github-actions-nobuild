@@ -2,16 +2,18 @@
     #if !defined(__cplusplus)
     #endif
     
-    #undef PLATFORM_MACOS
+    //#undef PLATFORM_MACOS
     //#undef PLATFORM_IOS
 
     #include <TargetConditionals.h>
     #if defined(TARGET_OS_IPHONE) && !TARGET_OS_IPHONE
         // MacOS
         #define PLATFORM_MACOS
+        #undef PLATFORM_IOS
     #else
         // iOS or iOS Simulator
         #define PLATFORM_IOS
+        #undef PLATFORM_MACOS
     #endif
 #elif defined(__EMSCRIPTEN__)
     #define PLATFORM_WEB
