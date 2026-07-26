@@ -28,7 +28,14 @@ void configure() {
     //     exit(1);
     // }
 
-    nob_cmd_append(&cmd, "sudo", "apt", "install", "libx11-dev", "libxi-dev", "libxcursor-dev", "mesa-common-dev", "libgl1-mesa-dri", "libgbm1");
+    nob_cmd_append(&cmd, "sudo", "apt", "install", 
+        "libx11-dev", 
+        "libxi-dev", 
+        "libxcursor-dev", 
+        "mesa-common-dev", 
+        //"libgl1-mesa-dri", 
+        //"libgbm1",
+    );
 
     if (!nob_cmd_run(&cmd)) {
         exit(1);
