@@ -55,4 +55,4 @@ jobs:
           call "C:\\Program Files\\Microsoft Visual Studio\\18\\Enterprise\\VC\\Auxiliary\\Build\\vcvars64.bat"
           cl.exe ${{ matrix.mode }} /Fe:nob nob.c
           nob.exe
-          build/main.exe
+          build\\main.exe
