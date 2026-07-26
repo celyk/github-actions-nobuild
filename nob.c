@@ -69,7 +69,6 @@ int buildExe() {
     nob_cc_inputs(&cmd, "-I", INCLUDES_FOLDER);
 
     nob_cc_inputs(&cmd, SRC_FOLDER "main.c");
-    nob_cc_output(&cmd, BUILD_SUBFOLDER "main");
 
 #ifdef PLATFORM_DARWIN
     nob_cc_inputs(&cmd, "-x", "objective-c");
@@ -88,6 +87,8 @@ int buildExe() {
 #else
     nob_cmd_append(&cmd, "-DSOKOL_GLCORE");
 #endif /* PLATFORM_DARWIN */
+
+    nob_cc_output(&cmd, BUILD_SUBFOLDER "main");
 
 
 #ifdef PLATFORM_LINUX
