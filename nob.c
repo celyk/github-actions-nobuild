@@ -39,11 +39,11 @@ void configure() {
 
 #ifdef TARGET_PLATFORM_IOS
 
-    nob_cmd_append(&cmd, "sudo", "xcode-select", "--install");
+    // nob_cmd_append(&cmd, "sudo", "xcode-select", "--install");
 
-    if (!nob_cmd_run(&cmd)) {
-        exit(1);
-    }
+    // if (!nob_cmd_run(&cmd)) {
+    //     exit(1);
+    // }
 
 #endif /* PLATFORM_LINUX */
 
@@ -74,7 +74,7 @@ int buildExe() {
     nob_cc_output(&cmd, BUILD_SUBFOLDER "main");
 
 
-#ifdef PLATFORM_DARWIN
+#ifndef TARGET_PLATFORM_IOS
     nob_cmd_append(&cmd, "-framework",  "QuartzCore");
 
 #ifdef PLATFORM_MACOS
