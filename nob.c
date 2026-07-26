@@ -85,12 +85,16 @@ int buildExe() {
     // Set graphics backend
     nob_cmd_append(&cmd, "-DSOKOL_METAL");
     nob_cmd_append(&cmd, "-framework",  "Metal");
-#else
-    // Set graphics backend
+#endif /* PLATFORM_DARWIN */
+
     nob_cmd_append(&cmd, "-DSOKOL_GLCORE");
+    
+#ifdef PLATFORM_LINUX
+    // Set graphics backend
+    nob_cmd_append(&cmd, "-lX11");
     nob_cmd_append(&cmd, "-lGL");
     // nob_cmd_append(&cmd, "-lopengl32");
-#endif /* PLATFORM_DARWIN */
+#endif
 
 #if defined(PLATFORM_GITHUB_WORKFLOW)
     nob_cmd_append(&cmd, "-DPLATFORM_GITHUB_WORKFLOW");
