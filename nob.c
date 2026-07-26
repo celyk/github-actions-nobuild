@@ -57,8 +57,8 @@ int buildExe() {
 #else
     // Set graphics backend
     nob_cmd_append(&cmd, "-DSOKOL_GLCORE");
-    nob_cmd_append(&cmd, "-lGL");
-    nob_cmd_append(&cmd, "-lopengl32");
+    // nob_cmd_append(&cmd, "-lGL");
+    // nob_cmd_append(&cmd, "-lopengl32");
 #endif /* PLATFORM_DARWIN */
 
 
@@ -102,7 +102,7 @@ int main(int argc, char **argv)
     NOB_GO_REBUILD_URSELF(argc, argv);
 
     configure();
-    
+
     if(buildExe() != 0) { return 1; };
     
 #ifndef PLATFORM_GITHUB_WORKFLOW
