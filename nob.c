@@ -18,6 +18,16 @@
 #define BUILD_SUBFOLDER "build/web/"
 #endif
 
+void configure() {
+    Nob_Cmd cmd = {0};
+
+    nob_cmd_append(&cmd, "sudo apt install mesa-common-dev");
+
+    if (!nob_cmd_run(&cmd)) {
+        exit(1);
+    }
+}
+
 int buildExe() {
     if (!nob_mkdir_if_not_exists(BUILD_FOLDER)) return 1;
     if (!nob_mkdir_if_not_exists(BUILD_SUBFOLDER)) return 1;
