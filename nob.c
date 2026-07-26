@@ -41,7 +41,7 @@ int runExe() {
     Nob_Cmd cmd = {0};
 
 #if !defined(PLATFORM_WINDOWS)
-    nob_cmd_append(&cmd, "cd", BUILD_SUBFOLDER);
+    nob_cmd_append(&cmd, "cd", "./" BUILD_SUBFOLDER);
     nob_cmd_append(&cmd, "&&", "./main");
 
 #else
