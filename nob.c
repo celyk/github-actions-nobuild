@@ -5,15 +5,16 @@
 
 // Some folder paths that we use throughout the build process.
 #define SRC_FOLDER   "src/"
+#define BUILD_FOLDER "build/macos/"
 
 #if defined(PLATFORM_MACOS)
-#define BUILD_FOLDER "build/macos/"
+#define BUILD_SUBFOLDER "build/macos/"
 #elif defined(PLATFORM_LINUX)
-#define BUILD_FOLDER "build/linux/"
+#define BUILD_SUBFOLDER "build/linux/"
 #elif defined(PLATFORM_WINDOWS)
-#define BUILD_FOLDER "build/windows/"
+#define BUILD_SUBFOLDER "build/windows/"
 #elif defined(PLATFORM_WEB)
-#define BUILD_FOLDER "build/web/"
+#define BUILD_SUBFOLDER "build/web/"
 #endif
 
 int main(int argc, char **argv)
@@ -30,6 +31,7 @@ int main(int argc, char **argv)
     // convention is usually that the function logs what happened to itself. Just do
     // `if (!nob_function()) return;`
     if (!nob_mkdir_if_not_exists(BUILD_FOLDER)) return 1;
+    if (!nob_mkdir_if_not_exists(BUILD_SUBFOLDER)) return 1;
 
     // The working horse of nob is the Nob_Cmd structure. It's a Dynamic Array of strings which represent
     // command line that you want to execute.
@@ -37,7 +39,7 @@ int main(int argc, char **argv)
 
     nob_cc(&cmd);
     nob_cc_flags(&cmd);
-    nob_cc_output(&cmd, BUILD_FOLDER "main");
+    nob_cc_output(&cmd, BUILD_SUB_FOLDER "main");
     nob_cc_inputs(&cmd, SRC_FOLDER "main.c");
 
 #if defined(PLATFORM_GITHUB_WORKFLOW)
