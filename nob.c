@@ -22,7 +22,7 @@ void configure() {
     Nob_Cmd cmd = {0};
 
 #ifdef PLATFORM_LINUX
-    nob_cmd_append(&cmd, "sudo apt install mesa-common-dev");
+    nob_cmd_append(&cmd, "sudo", "apt", "install", "mesa-common-dev");
 #endif
 
     if (cmd.count) {
