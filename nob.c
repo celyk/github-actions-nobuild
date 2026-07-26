@@ -42,9 +42,7 @@ int buildExe() {
     nob_cc_flags(&cmd);
     nob_cc_inputs(&cmd, "-I", INCLUDES_FOLDER);
 
-
     nob_cc_output(&cmd, BUILD_SUBFOLDER "main");
-    nob_cc_inputs(&cmd, SRC_FOLDER "main.c");
 
 #ifdef PLATFORM_DARWIN
     nob_cc_inputs(&cmd, "-x", "objective-c");
@@ -67,6 +65,7 @@ int buildExe() {
     // nob_cmd_append(&cmd, "-lopengl32");
 #endif /* PLATFORM_DARWIN */
 
+    nob_cc_inputs(&cmd, SRC_FOLDER "main.c");
 
 #if defined(PLATFORM_GITHUB_WORKFLOW)
     nob_cmd_append(&cmd, "-DPLATFORM_GITHUB_WORKFLOW");
