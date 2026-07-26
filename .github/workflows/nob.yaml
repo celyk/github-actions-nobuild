@@ -22,6 +22,26 @@ jobs:
           name: 'test-artifact'
           path: 'build/macos/main'
         
+  ios:
+    strategy:
+      matrix:
+        lang: [c, c++]
+    runs-on: macos-latest
+    steps:
+      - name: Clone GIT repo
+        uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+      - name: Run tests
+        run: |
+          clang -x ${{ matrix.lang }} -o nob nob.c -DPLATFORM_GITHUB_WORKFLOW -DPLATFORM_IOS
+          ./nob
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: 'test-artifact'
+          path: 'build/macos/main'
+        
   ubuntu:
     strategy:
       matrix:

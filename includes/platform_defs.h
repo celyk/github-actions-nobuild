@@ -1,6 +1,9 @@
 #if defined(__APPLE__)
     #if !defined(__cplusplus)
     #endif
+    
+    #undef PLATFORM_MACOS
+    #undef PLATFORM_IOS
 
     #include <TargetConditionals.h>
     #if defined(TARGET_OS_IPHONE) && !TARGET_OS_IPHONE

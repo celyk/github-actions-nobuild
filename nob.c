@@ -37,6 +37,22 @@ void configure() {
     }
 #endif /* PLATFORM_LINUX */
 
+#ifdef PLATFORM_IOS
+
+    nob_cmd_append(&cmd, "sudo", "apt", "install", 
+        "libx11-dev", 
+        "libxi-dev", 
+        "libxcursor-dev", 
+        "mesa-common-dev", 
+        "libgl1-mesa-dri", 
+        "libgbm1"
+    );
+
+    if (!nob_cmd_run(&cmd)) {
+        exit(1);
+    }
+#endif /* PLATFORM_LINUX */
+
     if (cmd.count) {
         if (!nob_cmd_run(&cmd)) {
             exit(1);
