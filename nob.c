@@ -19,7 +19,7 @@
 //
 // (In these examples we actually symlinking nob.h, but this is to keep nob.h-s synced among all the
 // examples)
-#include "nob.h"
+#include "includes/nob.h/nob.h"
 
 // Some folder paths that we use throughout the build process.
 #define BUILD_FOLDER "build/"
@@ -48,7 +48,7 @@ int main(int argc, char **argv)
     nob_cc_flags(&cmd);
     nob_cc_output(&cmd, BUILD_FOLDER "main");
     nob_cc_inputs(&cmd, SRC_FOLDER "main.c");
-    
+
     if (!nob_cmd_run(&cmd)) return 1;
 
     return 0;
